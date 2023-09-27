@@ -1,0 +1,63 @@
+.semester-header {
+  margin-top: min((0.19722 * 100vw), 284px);
+}
+.semester-title {
+  text-align: center;
+  letter-spacing: 5px;
+  margin: 2rem auto;
+}
+.semester-body-header {
+  margin-bottom: min((0.11722 * 100vw), 40px);
+}
+.semester-body-title {
+  // letter-spacing: 3px;
+  // margin: 2rem auto;
+  font-size: min((0.03389 * 100vw), 28px);
+}
+.semester-body {
+  display: grid;
+  gap: min((0.05556 * 100vw), 80px) min((0.02222 * 100vw), 32px);
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: min(4.333vw, 60px);
+}
+.personal-profile {
+  .personal-profile-photo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 250px;
+    height: 400px;
+    border-radius: 25px;
+  }
+  .personal-profile-info {
+    width: 250px;
+    line-height: 2.5rem;
+  }
+  .a {
+    background-image: url("/wangyuwei.jpg");
+  }
+  .b {
+    background-image: url("/sutzuchieh.jpg");
+  }
+  h2 {
+    font-size: min((0.01389 * 100vw), 20px);
+    letter-spacing: 0.05em;
+    margin-top: min((0.01597 * 100vw), 23px);
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: min((0.01472 * 100vw), 12px);
+    gap: min((0.00417 * 100vw), 6px) min((0.00417 * 100vw), 6px);
+    li {
+      background: #fff;
+      border: 1px solid #c4c4c4;
+      border-radius: 100vw;
+      display: block;
+      flex: 0 0 auto;
+      font-size: min((0.00972 * 100vw), 14px);
+      list-style: none;
+      padding: min((0.00139 * 100vw), 2px) min((0.00903 * 100vw), 13px);
+    }
+  }
+}

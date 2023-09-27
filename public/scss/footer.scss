@@ -1,0 +1,66 @@
+.footer {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+.footer-inner {
+  display: grid;
+  grid-template:
+    "logo . nav" auto
+    "copyright copyright copyright" auto/auto 1fr auto;
+  padding: min((0.07083 * 100vw), 102px) 0 min((0.04514 * 100vw), 65px);
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: min((0.02361 * 100vw), 34px);
+  grid-area: logo;
+  .logo {
+    mix-blend-mode: exclusion;
+    width: min((0.13889 * 100vw), 200px);
+    img {
+      width: 100%;
+    }
+  }
+  .text {
+    font-size: min((0.01042 * 100vw), 15px);
+    font-weight: 700;
+  }
+}
+.footer-nav {
+  display: flex;
+  gap: min((0.07083 * 100vw), 102px);
+  grid-area: nav;
+  padding-right: min((0.05278 * 100vw), 76px);
+}
+.footer-nav-group {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: min((0.01597 * 100vw), 23px);
+}
+.footer-nav-link {
+  color: #3c3c3c;
+  display: block;
+  flex: 0 0 auto;
+  font-size: min((0.01181 * 100vw), 17px);
+  font-weight: 700;
+  padding: 0 0 6px;
+  position: relative;
+  text-decoration: none;
+  transition: 0.3s ease;
+  &:hover {
+    // filter: brightness(2);
+    opacity: 0.3;
+  }
+}
+.footer-copyright {
+  align-items: baseline;
+  display: flex;
+  gap: min((0.01389 * 100vw), 20px);
+  grid-area: copyright;
+  padding: min((0.09861 * 100vw), 142px) 0 0;
+  .text {
+    font-size: min((0.01042 * 100vw), 15px);
+  }
+}
