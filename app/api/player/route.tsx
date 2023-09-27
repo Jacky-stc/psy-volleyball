@@ -5,9 +5,9 @@ import { query } from "@/lib/db";
 export async function GET(req: Request, res: Response) {
   console.log("get request");
   // AWS.config.update({
-  //   accessKeyId: "AKIATR2UIHMXVRRO2CKY",
-  //   secretAccessKey: "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",
-  //   region: "ap-northeast-1",
+  //   accessKeyId: process.env.accessKeyId,
+  //   secretAccessKey: process.env.secretAccessKey,
+  //   region: process.env.AWSregion,
   // });
   // const s3 = new AWS.S3();
   // const params = {
