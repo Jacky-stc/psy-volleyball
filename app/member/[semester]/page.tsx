@@ -29,6 +29,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
     (member: any) =>
       member["semester"] === semesterYear && member["position"] === "m"
   );
+  // console.log(playerMale, playerFemale, playerAssistance);
   const positionList = {
     oh: "大砲",
     op: "副攻",
@@ -43,9 +44,11 @@ const page = async ({ params }: { params: { semester: string } }) => {
         <h2 className="semester-title">{semesterYear}學年度</h2>
       </div>
       <div className="m-inner">
-        <div className="semester-body-header">
-          <h2 className="semester-body-title">男排</h2>
-        </div>
+        {playerMale[0] && (
+          <div className="semester-body-header">
+            <h2 className="semester-body-title">男排</h2>
+          </div>
+        )}
         <div className="semester-body">
           {playerMale.map((p: any) => (
             <div className="personal-profile">
@@ -60,9 +63,11 @@ const page = async ({ params }: { params: { semester: string } }) => {
             </div>
           ))}
         </div>
-        <div className="semester-body-header">
-          <h2 className="semester-body-title">女排</h2>
-        </div>
+        {playerFemale[0] && (
+          <div className="semester-body-header">
+            <h2 className="semester-body-title">女排</h2>
+          </div>
+        )}
         <div className="semester-body">
           {playerFemale.map((p: any) => (
             <div className="personal-profile">
@@ -77,9 +82,11 @@ const page = async ({ params }: { params: { semester: string } }) => {
             </div>
           ))}
         </div>
-        <div className="semester-body-header">
-          <h2 className="semester-body-title">球經</h2>
-        </div>
+        {playerAssistance[0] && (
+          <div className="semester-body-header">
+            <h2 className="semester-body-title">球經</h2>
+          </div>
+        )}
         <div className="semester-body">
           {playerAssistance.map((p: any) => (
             <div className="personal-profile">

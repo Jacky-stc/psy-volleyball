@@ -17,13 +17,13 @@ const Footer = () => {
               <a href="/" className="footer-nav-link">
                 首頁
               </a>
-              <a href="/" className="footer-nav-link">
+              <a href="/member" className="footer-nav-link">
                 歷屆成員
               </a>
-              <a href="/" className="footer-nav-link">
+              <a href="/photo" className="footer-nav-link">
                 照片紀念
               </a>
-              <a href="/" className="footer-nav-link">
+              <a href="/about" className="footer-nav-link">
                 關於我們
               </a>
             </div>
@@ -31,19 +31,22 @@ const Footer = () => {
               <a href="/" className="footer-nav-link">
                 首頁
               </a>
-              <a href="/" className="footer-nav-link">
-                首頁
+              <a href="/member" className="footer-nav-link">
+                歷屆成員
               </a>
-              <a href="/" className="footer-nav-link">
-                首頁
+              <a href="/photo" className="footer-nav-link">
+                照片紀念
               </a>
-              <a href="/" className="footer-nav-link">
-                首頁
+              <a href="/about" className="footer-nav-link">
+                關於我們
               </a>
             </div>
           </nav>
           <div className="footer-copyright">
-            <p className="text">@2023</p>
+            <p className="text">
+              COPYRIGHT © 2023 National Chengchi University Psychology
+              Volleyball Team
+            </p>
           </div>
         </footer>
       </div>
