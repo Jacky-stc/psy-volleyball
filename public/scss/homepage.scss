@@ -1,0 +1,12 @@
+.homepage-header {
+  background-image: url("/wings.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: min(19.028vw, 274px) auto min(9.028vw, 130px);
+  display: flex;
+  //   height: min(12.5vw, 180px);
+  height: auto;
+  justify-content: flex-end;
+  position: relative;
+}

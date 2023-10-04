@@ -25,7 +25,6 @@ export default function RootLayout({
       </head>
       <body>
         <Header></Header>
-        {/* <div className="header-block"></div> */}
         {children}
         <Footer></Footer>
       </body>

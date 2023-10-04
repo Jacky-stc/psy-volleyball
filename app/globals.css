@@ -17,11 +17,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-main {
-  width: 90%;
-  margin: 0 auto;
-}
 .header-block {
   width: 100%;
   height: 8rem;
@@ -36,6 +31,7 @@ main {
   letter-spacing: 0.15em;
   padding-right: min((0.02306 * 100vw), 32px);
   display: flex;
+  font-size: min((0.025 * 100vw), 36px);
 }
 .heading-2 .en {
   font-size: min((0.01389 * 100vw), 20px);

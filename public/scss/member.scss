@@ -31,7 +31,44 @@
 .semester {
   margin-top: 2rem;
   text-align: center;
+  h2 {
+    text-align: initial;
+    margin: min((0.04667 * 100vw), 60px) auto;
+  }
   a {
     text-decoration: underline;
+  }
+}
+.semester-btn-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: min((0.03556 * 100vw), 60px) min((0.02222 * 100vw), 32px);
+  margin: auto min((0.06667 * 100vw), 96px);
+  a {
+    text-decoration: none;
+  }
+}
+.semester-btn {
+  width: min((0.15556 * 100vw), 224px);
+  background-color: inherit;
+  align-items: center;
+  border: 1px solid #3c3c3c;
+  border-radius: 100vw;
+  color: #3c3c3c;
+  display: flex;
+  font-size: min((0.01111 * 100vw), 16px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  padding: min((0.01389 * 100vw), 20px) min((0.01667 * 100vw), 24px);
+  text-decoration: none;
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: #3b3b40;
+    color: #f7f6f1;
+  }
+  .text {
+    margin-right: auto;
   }
 }

@@ -37,6 +37,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
     s: "舉球",
     f: "自由",
     m: "球經",
+    st: "前鋒",
   };
   return (
     <>
@@ -56,6 +57,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
                 className="personal-profile-photo"
                 style={{ backgroundImage: `url(${p["image"]})` }}
               ></div>
+              {/* <img src={`${p["image"]}`} alt="personal photo" loading="lazy" /> */}
               <h2>{p["name"]}</h2>
               <ul>
                 <li>{positionList[p["position"]]}</li>

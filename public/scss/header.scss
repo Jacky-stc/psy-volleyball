@@ -8,6 +8,7 @@ header {
   font-weight: bold;
   font-size: min(1.781vw, 16px);
   color: #444141;
+  z-index: 10;
   nav {
     top: min((0.07167 * 100vw), 60px);
     right: min((0.08167 * 100vw), 240px);
