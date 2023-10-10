@@ -1,47 +1,20 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
-import "@/public/scss/photo.scss";
-import { useState } from "react";
 
-const PhotoList = ({ data }) => {
+import { Wait } from "@/lib/getData";
+import "@/public/scss/photo.scss";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
+const PhotoList = async ({ data }) => {
   const [photoCategory, setPhotoCategory] = useState("");
   const categoryList = ["所有相簿", "盃賽", "送舊", "聚會活動", "瑣碎日常"];
-  const groupedData = data.reduce((groups, item) => {
-    const { cat, folder, url } = item;
-    if (!groups[cat]) {
-      groups[cat] = [];
-    }
+  let photoAlbum: object[] = [];
 
-    groups[cat].push({ folder, url });
-
-    return groups;
-  }, {});
-  const albumsList = {};
-  // 预处理数据，将相同的 folder 分组到 albums 中
-  if (groupedData) {
-    Object.keys(groupedData).forEach((category) => {
-      groupedData[category].forEach((item) => {
-        if (!albumsList[item.folder]) {
-          albumsList[item.folder] = [];
-        }
-        item["cat"] = category;
-        albumsList[item.folder].push(item);
-      });
-    });
+  if (photoCategory === "" || photoCategory === "所有相簿") {
+    photoAlbum = data;
+  } else {
+    photoAlbum = data.filter((photo) => photo["cat"] === photoCategory);
   }
-  const sortAlbumList = {};
-  Object.keys(groupedData).forEach((category) => {
-    if (!sortAlbumList[category]) {
-      sortAlbumList[category] = {};
-    }
-    groupedData[category].forEach((item) => {
-      if (!sortAlbumList[category][item.folder]) {
-        sortAlbumList[category][item.folder] = [];
-      }
-      item["cat"] = category;
-      sortAlbumList[category][item.folder].push(item);
-    });
-  });
   const clickFunction = (cat: string) => {
     if (cat === "所有相簿") {
       setPhotoCategory("");
@@ -50,6 +23,7 @@ const PhotoList = ({ data }) => {
     }
   };
 
+  await Wait(2000);
   return (
     <div className="photo-body">
       <div className="photo-nav">
@@ -82,43 +56,19 @@ const PhotoList = ({ data }) => {
         ))}
       </div>
       <div className="photo-list">
-        {photoCategory === ""
-          ? Object.keys(albumsList).map((folder, index) => (
-              // 遍历每个活动
-              <div className="photo-list-item" key={index}>
-                <a>
-                  <figure>
-                    <img
-                      src={albumsList[folder][0]["url"]}
-                      alt="photo-item"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <h2>{folder}</h2>
-                  <ul>
-                    <li>{albumsList[folder][0]["cat"]}</li>
-                  </ul>
-                </a>
-              </div>
-            ))
-          : Object.keys(sortAlbumList[photoCategory]).map((folder, index) => (
-              // 遍历每个活动
-              <div className="photo-list-item" key={index}>
-                <a>
-                  <figure>
-                    <img
-                      src={sortAlbumList[photoCategory][folder][0]["url"]}
-                      alt="photo-item"
-                      loading="lazy"
-                    />
-                  </figure>
-                  <h2>{folder}</h2>
-                  <ul>
-                    <li>{sortAlbumList[photoCategory][folder][0]["cat"]}</li>
-                  </ul>
-                </a>
-              </div>
-            ))}
+        {photoAlbum.map((photo, index) => (
+          <Link href={`/photo/${photo["folder"]}`} key={index}>
+            <div className="photo-list-item">
+              <figure>
+                <img src={photo["url"]} alt="photo-item" loading="lazy" />
+              </figure>
+              <h2>{photo["folder"]}</h2>
+              <ul>
+                <li>{photo["cat"]}</li>
+              </ul>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

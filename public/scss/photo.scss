@@ -66,56 +66,59 @@
   grid-template-columns: repeat(3, 1fr);
   margin: min((0.06667 * 100vw), 96px) 0 0;
   .photo-list-item {
-    opacity: 1;
     pointer-events: auto;
+    transition: ease 0.5s;
+    opacity: 1;
     position: static;
     width: 100%;
-    a {
-      color: #3c3c3c;
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      cursor: pointer;
+    color: #3c3c3c;
+    border-radius: 12px;
+  }
+  figure {
+    border-radius: 12px;
+    background-color: #3c3c3c;
+    aspect-ratio: 392/261;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    :hover {
+      transform: scale(1.1);
     }
-    figure {
-      aspect-ratio: 392/261;
-      border-radius: 12px;
-      height: auto;
-      overflow: hidden;
+    img {
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: bottom;
+      object-position: bottom;
+      transition: all 0.3s;
       width: 100%;
-      :hover {
-        transform: scale(1.1);
-      }
-      img {
-        height: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
-        -o-object-position: bottom;
-        object-position: bottom;
-        transition: all 0.3s;
-        width: 100%;
-      }
-    }
-    h2 {
-      font-size: min((0.01389 * 100vw), 20px);
-      letter-spacing: 0.05em;
-      margin-top: min((0.01597 * 100vw), 23px);
-    }
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: min((0.01472 * 100vw), 12px);
-      gap: min((0.00417 * 100vw), 6px) min((0.00417 * 100vw), 6px);
-      li {
-        background: #fff;
-        border: 1px solid #c4c4c4;
-        border-radius: 100vw;
-        display: block;
-        flex: 0 0 auto;
-        font-size: min((0.00972 * 100vw), 14px);
-        list-style: none;
-        padding: min((0.00139 * 100vw), 2px) min((0.00903 * 100vw), 13px);
-      }
     }
   }
+  h2 {
+    font-size: min((0.01389 * 100vw), 20px);
+    letter-spacing: 0.05em;
+    margin-top: min((0.01597 * 100vw), 23px);
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: min((0.01472 * 100vw), 12px);
+    gap: min((0.00417 * 100vw), 6px) min((0.00417 * 100vw), 6px);
+    li {
+      background: #fff;
+      border: 1px solid #c4c4c4;
+      border-radius: 100vw;
+      display: block;
+      flex: 0 0 auto;
+      font-size: min((0.00972 * 100vw), 14px);
+      list-style: none;
+      padding: min((0.00139 * 100vw), 2px) min((0.00903 * 100vw), 13px);
+    }
+  }
+}
+.p-show {
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  width: 100%;
 }

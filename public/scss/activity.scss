@@ -1,0 +1,53 @@
+.activity-inner {
+  padding-top: min((0.29167 * 100vw), 420px);
+  position: relative;
+}
+.activity-header {
+  display: grid;
+  grid-template:
+    "info info" auto
+    "title title" auto
+    "client tag" auto
+    "link tag" 1fr/1fr auto;
+  margin: 0 auto min((0.04063 * 100vw), 58.5px);
+  width: min((0.71389 * 100vw), 1028px);
+  .activity-info {
+    align-items: center;
+    display: flex;
+    gap: min((0.00833 * 100vw), 12px);
+    grid-area: info;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: min((0.00417 * 100vw), 6px) min((0.00417 * 100vw), 6px);
+      li {
+        background: #fff;
+        border: 1px solid #c4c4c4;
+        border-radius: 100vw;
+        display: block;
+        flex: 0 0 auto;
+        font-size: min((0.00972 * 100vw), 14px);
+        list-style: none;
+        padding: min((0.00139 * 100vw), 2px) min((0.00903 * 100vw), 13px);
+      }
+    }
+  }
+  .activity-title {
+    font-size: min((0.025 * 100vw), 36px);
+    font-weight: 700;
+    grid-area: title;
+    letter-spacing: 0.03em;
+    margin: min((0.02028 * 100vw), 28px) 0 0;
+    padding: 0 0 min((0.01597 * 100vw), 23px);
+    position: relative;
+    &::after {
+      background: url(/line-dot-horizontal_3x10_gray.png) 0 0 / contain repeat-x;
+      bottom: 0;
+      content: "";
+      height: 3px;
+      left: 0;
+      position: absolute;
+      width: calc(100% + 3px);
+    }
+  }
+}

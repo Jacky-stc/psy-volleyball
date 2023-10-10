@@ -5,12 +5,10 @@ export async function GET(req: Request, res: Response) {
   console.log("get request");
   try {
     const getPhotoList = await query({
-      query: "SELECT * FROM photo",
+      query: "SELECT * FROM photo GROUP BY folder",
       values: [],
     });
-    // console.log(getPlayerInfo);
     const photoList = JSON.stringify(getPhotoList);
-    // console.log(playerInfo);
     return NextResponse.json(
       { message: "get request ok", photoList: photoList },
       { status: 200 }

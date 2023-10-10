@@ -44,9 +44,19 @@ header {
       }
     }
   }
+  .miss {
+    opacity: 0;
+    translate: 0 -40px;
+    transition: 0.8s ease;
+  }
+  .show {
+    opacity: 1;
+    translate: 0 0;
+    transition: 0.8s ease;
+  }
   img {
-    width: min(15.278vw, 220px);
-    top: min((0.04722 * 100vw), 68px);
+    width: min(11.278vw, 220px);
+    top: min((0.05722 * 100vw), 68px);
     position: fixed;
     left: min((0.05556 * 100vw), 80px);
   }
