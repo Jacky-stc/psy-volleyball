@@ -14,7 +14,6 @@ export async function GET(
       query: "SELECT * FROM photo WHERE folder = ? LIMIT ?, 9",
       values: [folder, parseInt(searchParams.get("page") || "0") * 9],
     });
-    // console.log(getPhotos);
 
     return NextResponse.json(
       { message: "get photos ok", photos: getPhotos },
