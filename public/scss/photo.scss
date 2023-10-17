@@ -81,17 +81,25 @@
     height: auto;
     overflow: hidden;
     width: 100%;
-    :hover {
-      transform: scale(1.1);
-    }
+    cursor: pointer;
+
+    // pointer-events: none;
     img {
       height: 100%;
       -o-object-fit: cover;
       object-fit: cover;
-      -o-object-position: bottom;
-      object-position: bottom;
+      -o-object-position: center;
+      object-position: center;
       transition: all 0.3s;
       width: 100%;
+      :hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .album {
+    :hover {
+      transform: scale(1.1);
     }
   }
   h2 {

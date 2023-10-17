@@ -5,7 +5,7 @@ import "@/public/scss/photo.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const PhotoList = async ({ data }) => {
+const PhotoList = ({ data }) => {
   const [photoCategory, setPhotoCategory] = useState("");
   const categoryList = ["所有相簿", "盃賽", "送舊", "聚會活動", "瑣碎日常"];
   let photoAlbum: object[] = [];
@@ -23,7 +23,7 @@ const PhotoList = async ({ data }) => {
     }
   };
 
-  await Wait(2000);
+  // await Wait(2000);
   return (
     <div className="photo-body">
       <div className="photo-nav">
@@ -59,7 +59,7 @@ const PhotoList = async ({ data }) => {
         {photoAlbum.map((photo, index) => (
           <Link href={`/photo/${photo["folder"]}`} key={index}>
             <div className="photo-list-item">
-              <figure>
+              <figure className="album">
                 <img src={photo["url"]} alt="photo-item" loading="lazy" />
               </figure>
               <h2>{photo["folder"]}</h2>

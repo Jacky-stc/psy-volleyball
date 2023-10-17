@@ -1,42 +1,95 @@
 "use client";
-import { useParams } from "next/navigation";
+
 import React, { useEffect, useState } from "react";
 import "@/public/scss/photo.scss";
+import { useInView } from "react-intersection-observer";
+import { Suspense } from "react";
 
-const Activity = () => {
+const Activity = ({
+  initialPhotos,
+  folder,
+}: {
+  initialPhotos: Document[] | undefined;
+  folder: string;
+}) => {
   const [page, setPage] = useState(0);
-  const [photos, setPhotos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useParams();
+  const [photos, setPhotos] = useState(initialPhotos);
+  const [zoomInPohtoURL, setZoomInPhotoURL] = useState("");
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [ref, inView] = useInView();
 
-  useEffect(() => {
-    async function getPhotos() {
-      const data = await fetch(
-        `http://localhost:3000/api/photo/${router["activity"]}?page=${page}`
-      );
-      const json = await data.json();
-      setPhotos([...photos, ...json["photos"]]);
-      // setIsLoading(false);
-    }
-    getPhotos();
-    console.log(photos, "photos");
-  }, [page]);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          console.log("intersecting");
-          setPage((prevPage) => prevPage + 1);
-        } else {
-          return;
-        }
-      },
-      { threshold: 1 }
+  async function loadMorePhotos() {
+    const next = page + 1;
+    const res = await fetch(
+      `http://localhost:3000/api/photo/${folder}?page=${next}`
     );
-    observer.observe(document.querySelector("footer"));
-  }, []);
+    const photos = await res.json();
+    if (photos["photos"][0]) {
+      setPage(next);
+      setPhotos((prev: Document[] | undefined) => [
+        ...(prev?.length ? prev : []),
+        ...photos["photos"],
+      ]);
+    }
+  }
+  useEffect(() => {
+    if (inView) {
+      loadMorePhotos();
+    }
+  }, [inView]);
+  const closeZoomIn = () => {
+    setZoomInPhotoURL("");
+  };
+  const nextPhoto = () => {
+    if (photos) {
+      if (photoIndex + 1 >= photos?.length) {
+        setZoomInPhotoURL(photos[0]["url"]);
+        setPhotoIndex(0);
+      } else {
+        setZoomInPhotoURL(photos[photoIndex + 1]["url"]);
+        setPhotoIndex((prev) => prev + 1);
+      }
+    }
+  };
+  const prevPhoto = () => {
+    if (photos) {
+      if (photoIndex - 1 <= 0) {
+        setZoomInPhotoURL(photos[photos.length - 1]["url"]);
+        setPhotoIndex(photos.length - 1);
+      } else {
+        setZoomInPhotoURL(photos[photoIndex - 1]["url"]);
+        setPhotoIndex((prev) => prev - 1);
+      }
+    }
+  };
   return (
     <>
+      <div
+        className="activity-zoom-in"
+        style={{
+          visibility: zoomInPohtoURL ? "visible" : "hidden",
+          display: zoomInPohtoURL ? "flex" : "none",
+        }}
+      >
+        <div className="zoom-in-container">
+          <div>
+            <img
+              src={zoomInPohtoURL}
+              style={{ transform: zoomInPohtoURL ? "scale(1)" : "scale(0)" }}
+            ></img>
+            <button className="btn right" onClick={nextPhoto}>
+              {">"}
+            </button>
+            <button className="btn left" onClick={prevPhoto}>
+              {"<"}
+            </button>
+          </div>
+          <button onClick={closeZoomIn} className="btn close">
+            X
+          </button>
+        </div>
+      </div>
+
       {photos[0] && (
         <div className="activity-header">
           <div className="activity-info">
@@ -48,8 +101,17 @@ const Activity = () => {
         </div>
       )}
       <div className="photo-list">
-        {photos.map((photo, index) => (
-          <div className="photo-list-item" key={index}>
+        {photos?.map((photo, index) => (
+          <div
+            className="photo-list-item"
+            key={index}
+            onClick={() => {
+              setPhotoIndex(
+                photos.findIndex((Info) => Info["url"] === photo["url"])
+              );
+              setZoomInPhotoURL(photo["url"]);
+            }}
+          >
             <a>
               <figure>
                 <img src={photo["url"]} alt="photo-item" loading="lazy" />
@@ -58,9 +120,7 @@ const Activity = () => {
           </div>
         ))}
       </div>
-      <a href="/about">
-        <div id="trigger">trigger</div>
-      </a>
+      <div ref={ref}></div>
     </>
   );
 };

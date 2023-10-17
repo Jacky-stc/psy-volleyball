@@ -12,7 +12,7 @@ export async function GET(
   try {
     const getPhotos = await query({
       query: "SELECT * FROM photo WHERE folder = ? LIMIT ?, 9",
-      values: [folder, parseInt(searchParams.get("page") || "1") * 9],
+      values: [folder, parseInt(searchParams.get("page") || "0") * 9],
     });
     // console.log(getPhotos);
 

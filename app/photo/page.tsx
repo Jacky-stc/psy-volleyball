@@ -27,9 +27,7 @@ const page = async () => {
           </span>
         </h1>
       </div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <PhotoList data={JSON.parse(data["photoList"])}></PhotoList>
-      </Suspense>
+      <PhotoList data={JSON.parse(data["photoList"])}></PhotoList>
     </div>
   );
 };

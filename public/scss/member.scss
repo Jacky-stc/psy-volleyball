@@ -17,14 +17,13 @@
   // margin: min((0.19028 * 100vw), 274px) auto min((0.09028 * 100vw), 130px);
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin: min((0.19028 * 100vw), 274px) auto min((0.09028 * 100vw), 130px);
   position: relative;
   width: min((0.86111 * 100vw), 1240px);
   z-index: 1;
 }
 .member-header-title {
-  left: min((0.06486 * 100vw), 28px);
   bottom: min((0.00694 * 100vw), 10px);
   font-size: min((0.025 * 100vw), 36px);
 }

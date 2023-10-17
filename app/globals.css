@@ -3,14 +3,34 @@
   padding: 0;
   margin: 0;
 }
+:root {
+  --basic-bg: #f7f6f1;
+  --weight-b: 700;
+}
 
 body {
   font-family: "Noto Serif TC", serif;
+  font-size: min((0.01111 * 100vw), 16px);
   background-color: #f7f6f1;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-button {
+    background: transparent;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #504f4f;
+    border: 1px solid slategrey;
+  }
 }
 
 a {
@@ -25,6 +45,21 @@ a {
   margin: 0 auto;
   width: min((0.86111 * 100vw), 1240px);
 }
+.m-btn {
+  align-items: center;
+  border: 1px solid #3c3c3c;
+  border-radius: 100vw;
+  color: #3c3c3c;
+  display: flex;
+  font-size: min((0.01111 * 100vw), 16px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  padding: min((0.01389 * 100vw), 20px) 0 min((0.01389 * 100vw), 20px)
+    min((0.01667 * 100vw), 24px);
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
 .heading-2 {
   writing-mode: vertical-rl;
   position: relative;
@@ -32,11 +67,12 @@ a {
   padding-right: min((0.02306 * 100vw), 32px);
   display: flex;
   font-size: min((0.025 * 100vw), 36px);
+  right: min((0.00486 * 100vw), 7px);
 }
 .heading-2 .en {
   font-size: min((0.01389 * 100vw), 20px);
   font-weight: 500;
-  left: 100%;
+  left: 90%;
   letter-spacing: 0.1em;
   line-height: 1.8;
   position: absolute;

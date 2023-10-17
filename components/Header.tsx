@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 import "@/public/scss/header.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
 
 const Header = () => {
   const pathName = usePathname();
   const [scrollingUp, setScrollingUp] = useState(true);
   const [pathname, setPathname] = useState(pathName);
-  // const router = useRouter();
+
   useEffect(() => {
     let prevScroll = window.scrollY;
     const handleScroll = () => {
@@ -34,21 +33,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [pathName]);
-  // useEffect(() => {
-  //   const handleRouteChange = () => {
-  //     console.log(`App is changing`);
-  //   };
-  //   const handleRouteComplete = () => {
-  //     console.log(`You have finished going to the new page`);
-  //   };
-
-  //   router.events.on("routeChangeStart", handleRouteChange);
-  //   router.events.on("routeChangeComplete", handleRouteComplete);
-
-  //   return () => {
-  //     router.events.off("routeChangeStart", handleRouteChange);
-  //   };
-  // }, []);
 
   return (
     <header>
@@ -60,16 +44,16 @@ const Header = () => {
       <nav className={scrollingUp ? "show" : "miss"}>
         <ul>
           <li>
-            <Link href={"/"}>首頁</Link>
+            <a href={"/"}>首頁</a>
           </li>
           <li>
-            <Link href={"/member"}>歷屆成員</Link>
+            <a href={"/member"}>歷屆成員</a>
           </li>
           <li>
-            <Link href={"/photo"}>照片紀念</Link>
+            <a href={"/photo"}>照片紀念</a>
           </li>
           <li>
-            <Link href={"/about"}>關於我們</Link>
+            <a href={"/about"}>關於我們</a>
           </li>
           <button>CONTACT</button>
         </ul>
