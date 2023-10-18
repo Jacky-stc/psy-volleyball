@@ -53,7 +53,7 @@ const Activity = ({
   };
   const prevPhoto = () => {
     if (photos) {
-      if (photoIndex - 1 <= 0) {
+      if (photoIndex - 1 < 0) {
         setZoomInPhotoURL(photos[photos.length - 1]["url"]);
         setPhotoIndex(photos.length - 1);
       } else {
