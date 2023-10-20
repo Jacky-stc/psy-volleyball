@@ -3,6 +3,7 @@ import "@/public/scss/about.scss";
 import AboutMap from "@/components/about/AboutMap";
 
 const page = () => {
+  const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY || "";
   return (
     <div className="m-inner">
       <div className="about-header">
@@ -72,7 +73,7 @@ const page = () => {
                   <span className="en">NCCU</span>
                 </h3>
                 <div className="about-place-info">
-                  <AboutMap></AboutMap>
+                  <AboutMap apiKey={googleMapsApiKey}></AboutMap>
                   {/* <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7232.70670986656!2d121.58316832553508!3d24.988106369827683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa79452c2f49%3A0x9e8d07508e3bf507!2z5ZyL56uL5pS_5rK75aSn5a24!5e0!3m2!1szh-TW!2stw!4v1697647374762!5m2!1szh-TW!2stw"
                     width="600"

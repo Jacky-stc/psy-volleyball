@@ -26,7 +26,6 @@ export async function GET(req: Request, res: Response) {
         "-"
       );
       const semester = player.Key?.slice(7, 10);
-      // const name = playerInfo ? playerInfo[0] : null;
       if (playerInfo) {
         return [...playerInfo, semester];
       }
@@ -38,33 +37,14 @@ export async function GET(req: Request, res: Response) {
     const missingPlayer = s3Players?.filter(
       (player) => !dbPlayerNames.includes(player[0]) && player[0] !== ""
     );
-    // console.log(missingPlayer);
-    missingPlayer?.forEach((player) => {
-      const name = player[0];
-      const position = player[1];
-      const gender = player[2];
-      const semester = player[3];
-      const image = `https://psy-volleyball.s3.ap-northeast-1.amazonaws.com/player/${semester}/${name}-${position}-${gender}.jpg`;
-      if (name) {
-        try {
-          const updateDatabase = query({
-            query: `INSERT INTO player(name, position, semester, gender, image) VALUES(?,?,?,?,?)`,
-            values: [name, position, semester, gender, image],
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    });
-    // data.Contents?.forEach((player) => {
-    //   const playerInfo = player.Key?.slice(11, -4).split("-");
-    //   const semester = player.Key?.slice(7, 10);
-    //   const name = playerInfo ? playerInfo[0] : null;
-    //   const position = playerInfo ? playerInfo[1] : null;
-    //   const gender = playerInfo ? playerInfo[2] : null;
-    //   const image = `https://psy-volleyball.s3.ap-northeast-1.amazonaws.com/${player.Key}`;
+    console.log(missingPlayer);
+    // missingPlayer?.forEach((player) => {
+    //   const name = player[0];
+    //   const position = player[1];
+    //   const gender = player[2];
+    //   const semester = player[3];
+    //   const image = `https://psy-volleyball.s3.ap-northeast-1.amazonaws.com/player/${semester}/${name}-${position}-${gender}.jpg`;
     //   if (name) {
-    //     console.log(name, position, semester, gender);
     //     try {
     //       const updateDatabase = query({
     //         query: `INSERT INTO player(name, position, semester, gender, image) VALUES(?,?,?,?,?)`,
