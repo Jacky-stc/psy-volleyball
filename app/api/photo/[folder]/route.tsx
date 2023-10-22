@@ -8,6 +8,7 @@ export async function GET(
 ) {
   const searchParams = req.nextUrl.searchParams;
   const folder = params.folder;
+  console.log(params);
   try {
     const getPhotos = await query({
       query: "SELECT * FROM photo WHERE folder = ? LIMIT ?, 9",
