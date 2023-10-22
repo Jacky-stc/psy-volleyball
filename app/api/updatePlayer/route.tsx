@@ -16,28 +16,29 @@ export async function GET(req: Request, res: Response) {
       Prefix: "player/",
     };
     const data = await s3.listObjectsV2(params).promise();
-    const getDbData = await query({
-      query: "SELECT * FROM player",
-      values: [],
-    });
-    const dbData = JSON.parse(JSON.stringify(getDbData));
-    const s3Players = data.Contents?.map((player) => {
-      const playerInfo: string[] | undefined = player.Key?.slice(11, -4).split(
-        "-"
-      );
-      const semester = player.Key?.slice(7, 10);
-      if (playerInfo) {
-        return [...playerInfo, semester];
-      }
-    });
+    console.log(data);
+    // const getDbData = await query({
+    //   query: "SELECT * FROM player",
+    //   values: [],
+    // });
+    // const dbData = JSON.parse(JSON.stringify(getDbData));
+    // const s3Players = data.Contents?.map((player) => {
+    //   const playerInfo: string[] | undefined = player.Key?.slice(11, -4).split(
+    //     "-"
+    //   );
+    //   const semester = player.Key?.slice(7, 10);
+    //   if (playerInfo) {
+    //     return [...playerInfo, semester];
+    //   }
+    // });
 
-    const dbPlayerNames = dbData.map((player: Array<object>) => {
-      return player["name"];
-    });
-    const missingPlayer = s3Players?.filter(
-      (player) => !dbPlayerNames.includes(player[0]) && player[0] !== ""
-    );
-    console.log(missingPlayer);
+    // const dbPlayerNames = dbData.map((player: Array<object>) => {
+    //   return player["name"];
+    // });
+    // const missingPlayer = s3Players?.filter(
+    //   (player) => !dbPlayerNames.includes(player[0]) && player[0] !== ""
+    // );
+    // console.log(missingPlayer);
     // missingPlayer?.forEach((player) => {
     //   const name = player[0];
     //   const position = player[1];
