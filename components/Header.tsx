@@ -44,16 +44,16 @@ const Header = () => {
       <nav className={scrollingUp ? "show" : "miss"}>
         <ul>
           <li>
-            <a href={"/"}>首頁</a>
+            <Link href={"/"}>首頁</Link>
           </li>
           <li>
-            <a href={"/member"}>歷屆成員</a>
+            <Link href={"/member"}>歷屆成員</Link>
           </li>
           <li>
-            <a href={"/photo"}>照片紀念</a>
+            <Link href={"/photo"}>照片紀念</Link>
           </li>
           <li>
-            <a href={"/about"}>關於我們</a>
+            <Link href={"/about"}>關於我們</Link>
           </li>
           <button>CONTACT</button>
         </ul>
