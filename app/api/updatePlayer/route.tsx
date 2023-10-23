@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import AWS from "aws-sdk";
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { type NextRequest } from "next/server";
 
@@ -8,7 +7,6 @@ import { query } from "@/lib/db";
 export async function GET(req: NextRequest) {
   console.log("get request");
   try {
-    const semester = params.semester;
     const client = new S3Client({
       region: process.env.AWSregion,
       credentials: {
