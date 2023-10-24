@@ -1,6 +1,4 @@
 import React from "react";
-// import "@/public/scss/loading.scss";
-import Link from "next/link";
 
 const loading = () => {
   return (

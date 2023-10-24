@@ -22,7 +22,7 @@ const page = () => {
           <h2>學年度列表</h2>
           <div className="semester-btn-list">
             {semesterList.map((semester) => (
-              <Link href={`/member/semester${semester}`}>
+              <Link href={`/member/semester${semester}`} key={semester}>
                 <button className="semester-btn">
                   <span className="text">{semester}學年度</span>
                   <span> ···▶</span>

@@ -33,8 +33,8 @@ export async function GET(req: Request, res: Response) {
         }
       }
     });
-    const dbPhotoNames = dbData.map((photo: Array<object>) => {
-      return photo["url"];
+    const dbPhotoNames = dbData.map((photo: { url: string }) => {
+      return photo.url;
     });
     const missingPhotos = s3Photos?.filter(
       (photo) =>
@@ -43,7 +43,6 @@ export async function GET(req: Request, res: Response) {
           `https://psy-volleyball.s3.ap-northeast-1.amazonaws.com/photo/${photo[0]}/${photo[1]}/${photo[2]}`
         )
     );
-    console.log(missingPhotos);
     missingPhotos?.forEach((photo) => {
       if (photo !== undefined) {
         const category = photo[0];

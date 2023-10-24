@@ -1,8 +1,6 @@
 import React from "react";
 import "@/public/scss/photo.scss";
 import PhotoList from "@/components/photo/PhotoList";
-import { Suspense } from "react";
-import { Wait } from "@/lib/getData.js";
 
 async function getPhotoList() {
   const result = await fetch("http://localhost:3000/api/photo");
@@ -16,7 +14,7 @@ async function getPhotoList() {
 }
 
 const page = async () => {
-  const data = await getPhotoList();
+  const data: { photoList: string } = await getPhotoList();
   return (
     <div className="m-inner">
       <div className="photo-header">
@@ -27,7 +25,7 @@ const page = async () => {
           </span>
         </h1>
       </div>
-      <PhotoList data={JSON.parse(data["photoList"])}></PhotoList>
+      <PhotoList data={JSON.parse(data.photoList)}></PhotoList>
     </div>
   );
 };

@@ -1,19 +1,21 @@
 "use client";
 
-import { Wait } from "@/lib/getData";
 import "@/public/scss/photo.scss";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const PhotoList = ({ data }) => {
+const PhotoList = ({
+  data,
+}: {
+  data: { cat: string; folder: string; url: string }[];
+}) => {
   const [photoCategory, setPhotoCategory] = useState("");
   const categoryList = ["所有相簿", "盃賽", "送舊", "聚會活動", "瑣碎日常"];
-  let photoAlbum: object[] = [];
-
+  let photoAlbum: { cat: string; folder: string; url: string }[] = [];
   if (photoCategory === "" || photoCategory === "所有相簿") {
     photoAlbum = data;
   } else {
-    photoAlbum = data.filter((photo) => photo["cat"] === photoCategory);
+    photoAlbum = data.filter((photo) => photo.cat === photoCategory);
   }
   const clickFunction = (cat: string) => {
     if (cat === "所有相簿") {
@@ -22,8 +24,6 @@ const PhotoList = ({ data }) => {
       setPhotoCategory(cat);
     }
   };
-
-  // await Wait(2000);
   return (
     <div className="photo-body">
       <div className="photo-nav">
@@ -57,14 +57,14 @@ const PhotoList = ({ data }) => {
       </div>
       <div className="photo-list">
         {photoAlbum.map((photo, index) => (
-          <Link href={`/photo/${photo["folder"]}`} key={index}>
+          <Link href={`/photo/${photo.folder}`} key={index}>
             <div className="photo-list-item">
               <figure className="album">
-                <img src={photo["url"]} alt="photo-item" loading="lazy" />
+                <img src={photo.url} alt="photo-item" loading="lazy" />
               </figure>
-              <h2>{photo["folder"]}</h2>
+              <h2>{photo.folder}</h2>
               <ul>
-                <li>{photo["cat"]}</li>
+                <li>{photo.cat}</li>
               </ul>
             </div>
           </Link>

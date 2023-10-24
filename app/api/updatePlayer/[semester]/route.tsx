@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import AWS from "aws-sdk";
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { type NextRequest } from "next/server";
 
@@ -13,10 +12,10 @@ export async function GET(
   try {
     const semester = params.semester;
     const client = new S3Client({
-      region: process.env.AWSregion,
+      region: process.env.AWSregion || "",
       credentials: {
-        accessKeyId: process.env.accessKeyId,
-        secretAccessKey: process.env.secretAccessKey,
+        accessKeyId: process.env.accessKeyId || "",
+        secretAccessKey: process.env.secretAccessKey || "",
       },
     });
     const command = new ListObjectsV2Command({
@@ -39,16 +38,14 @@ export async function GET(
         return [...playerInfo, semester];
       }
     });
-    console.log(s3Players);
 
-    const dbPlayerNames = dbData.map((player: Array<object>) => {
-      return player["name"];
+    const dbPlayerNames = dbData.map((player: { name: string }) => {
+      return player.name;
     });
     const missingPlayer = s3Players?.filter(
-      (player) => !dbPlayerNames.includes(player[0]) && player[0] !== ""
+      (player: any) => !dbPlayerNames.includes(player[0]) && player[0] !== ""
     );
-    console.log(missingPlayer);
-    missingPlayer?.forEach((player) => {
+    missingPlayer?.forEach((player: any) => {
       const name = player[0];
       const position = player[1];
       const gender = player[2];

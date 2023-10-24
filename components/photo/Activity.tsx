@@ -3,13 +3,12 @@
 import React, { useEffect, useState } from "react";
 import "@/public/scss/photo.scss";
 import { useInView } from "react-intersection-observer";
-import { Suspense } from "react";
 
 const Activity = ({
   initialPhotos,
   folder,
 }: {
-  initialPhotos: Document[] | undefined;
+  initialPhotos: { cat: string; folder: string; url: string }[];
   folder: string;
 }) => {
   const [page, setPage] = useState(0);
@@ -23,12 +22,12 @@ const Activity = ({
     const res = await fetch(
       `http://localhost:3000/api/photo/${folder}?page=${next}`
     );
-    const photos = await res.json();
-    if (photos["photos"][0]) {
+    const resPhotos = await res.json();
+    if (resPhotos["photos"][0]) {
       setPage(next);
-      setPhotos((prev: Document[] | undefined) => [
+      setPhotos((prev) => [
         ...(prev?.length ? prev : []),
-        ...photos["photos"],
+        ...resPhotos["photos"],
       ]);
     }
   }

@@ -1,4 +1,3 @@
-import Profile from "@/components/member/Profile";
 import "@/public/scss/semester.scss";
 
 async function getPlayerInfo() {
@@ -11,6 +10,9 @@ async function getPlayerInfo() {
 }
 
 const page = async ({ params }: { params: { semester: string } }) => {
+  type PositionList = {
+    [key: string]: string;
+  };
   const semesterYear = params.semester.slice(8, 11);
   const playerInfo = await getPlayerInfo();
   const playerMale = JSON.parse(playerInfo["playerInfo"]).filter(
@@ -29,8 +31,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
     (member: any) =>
       member["semester"] === semesterYear && member["position"] === "m"
   );
-  // console.log(playerMale, playerFemale, playerAssistance);
-  const positionList = {
+  const positionList: PositionList = {
     oh: "大砲",
     op: "副攻",
     mb: "欄中",
@@ -51,19 +52,20 @@ const page = async ({ params }: { params: { semester: string } }) => {
           </div>
         )}
         <div className="semester-body">
-          {playerMale.map((p: any) => (
-            <div className="personal-profile">
-              <div
-                className="personal-profile-photo"
-                style={{ backgroundImage: `url(${p["image"]})` }}
-              ></div>
-              {/* <img src={`${p["image"]}`} alt="personal photo" loading="lazy" /> */}
-              <h2>{p["name"]}</h2>
-              <ul>
-                <li>{positionList[p["position"]]}</li>
-              </ul>
-            </div>
-          ))}
+          {playerMale.map(
+            (p: { name: string; image: string; position: string }) => (
+              <div className="personal-profile">
+                <div
+                  className="personal-profile-photo"
+                  style={{ backgroundImage: `url(${p.image})` }}
+                ></div>
+                <h2>{p.name}</h2>
+                <ul>
+                  <li>{positionList[p.position]}</li>
+                </ul>
+              </div>
+            )
+          )}
         </div>
         {playerFemale[0] && (
           <div className="semester-body-header">
@@ -71,18 +73,20 @@ const page = async ({ params }: { params: { semester: string } }) => {
           </div>
         )}
         <div className="semester-body">
-          {playerFemale.map((p: any) => (
-            <div className="personal-profile">
-              <div
-                className="personal-profile-photo"
-                style={{ backgroundImage: `url(${p["image"]})` }}
-              ></div>
-              <h2>{p["name"]}</h2>
-              <ul>
-                <li>{positionList[p["position"]]}</li>
-              </ul>
-            </div>
-          ))}
+          {playerFemale.map(
+            (p: { name: string; image: string; position: string }) => (
+              <div className="personal-profile">
+                <div
+                  className="personal-profile-photo"
+                  style={{ backgroundImage: `url(${p.image})` }}
+                ></div>
+                <h2>{p.name}</h2>
+                <ul>
+                  <li>{positionList[p.position]}</li>
+                </ul>
+              </div>
+            )
+          )}
         </div>
         {playerAssistance[0] && (
           <div className="semester-body-header">
@@ -90,18 +94,20 @@ const page = async ({ params }: { params: { semester: string } }) => {
           </div>
         )}
         <div className="semester-body">
-          {playerAssistance.map((p: any) => (
-            <div className="personal-profile">
-              <div
-                className="personal-profile-photo"
-                style={{ backgroundImage: `url(${p["image"]})` }}
-              ></div>
-              <h2>{p["name"]}</h2>
-              <ul>
-                <li>{positionList[p["position"]]}</li>
-              </ul>
-            </div>
-          ))}
+          {playerAssistance.map(
+            (p: { name: string; image: string; position: string }) => (
+              <div className="personal-profile">
+                <div
+                  className="personal-profile-photo"
+                  style={{ backgroundImage: `url(${p.image})` }}
+                ></div>
+                <h2>{p.name}</h2>
+                <ul>
+                  <li>{positionList[p.position]}</li>
+                </ul>
+              </div>
+            )
+          )}
         </div>
       </div>
     </>
