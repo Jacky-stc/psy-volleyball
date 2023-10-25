@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { query } from "@/lib/db";
 
 export async function GET(req: Request, res: Response) {
-  console.log("get request");
+  console.log("get player info request");
   try {
     const getPlayerInfo = await query({
       query: "SELECT * FROM player",

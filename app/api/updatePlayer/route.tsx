@@ -5,7 +5,7 @@ import { type NextRequest } from "next/server";
 import { query } from "@/lib/db";
 
 export async function GET(req: NextRequest) {
-  console.log("get request");
+  console.log("get update player request");
   try {
     const client = new S3Client({
       region: process.env.AWSregion || "",

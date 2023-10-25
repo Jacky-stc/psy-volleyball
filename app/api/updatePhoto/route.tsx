@@ -1,28 +1,29 @@
 import { NextResponse } from "next/server";
-import AWS from "aws-sdk";
-import { S3 } from "@aws-sdk/client-s3";
+import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { query } from "@/lib/db";
 
 export async function GET(req: Request, res: Response) {
-  console.log("get request");
+  console.log("get update photo request");
   try {
-    AWS.config.update({
-      accessKeyId: process.env.accessKeyId,
-      secretAccessKey: process.env.secretAccessKey,
-      region: process.env.AWSregion,
+    const client = new S3Client({
+      region: process.env.AWSregion || "",
+      credentials: {
+        accessKeyId: process.env.accessKeyId || "",
+        secretAccessKey: process.env.secretAccessKey || "",
+      },
     });
-    const s3 = new S3();
-    const params = {
+    const command = new ListObjectsV2Command({
       Bucket: "psy-volleyball",
-      Prefix: "photo/",
-    };
-    const data = await s3.listObjectsV2(params);
+      Prefix: `photo/`,
+      //   MaxKeys: 1,
+    });
+    const { Contents } = await client.send(command);
     const getDbData = await query({
       query: "SELECT * FROM photo",
       values: [],
     });
     const dbData = JSON.parse(JSON.stringify(getDbData));
-    const s3Photos = data.Contents?.map((photo) => {
+    const s3Photos = Contents?.map((photo) => {
       const photoInfo: string[] | undefined = photo.Key?.split("/");
       if (photoInfo) {
         const category = photoInfo[1];

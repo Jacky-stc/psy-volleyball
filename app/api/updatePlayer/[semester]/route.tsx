@@ -8,7 +8,7 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { semester: string } }
 ) {
-  console.log("get request");
+  console.log("get update player by semester request");
   try {
     const semester = params.semester;
     const client = new S3Client({
