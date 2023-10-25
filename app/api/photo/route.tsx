@@ -5,7 +5,8 @@ export async function GET(req: Request, res: Response) {
   console.log("get album request");
   try {
     const getPhotoList = await query({
-      query: "SELECT * FROM photo GROUP BY folder",
+      query:
+        "SELECT folder, AMY_VALUE(cat), ANY_VALUE(url) FROM photo GROUP BY folder",
       values: [],
     });
     const photoList = JSON.stringify(getPhotoList);
