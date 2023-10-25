@@ -6,7 +6,7 @@ export async function GET(req: Request, res: Response) {
   try {
     const getPhotoList = await query({
       query:
-        "SELECT folder, AMY_VALUE(cat), ANY_VALUE(url) FROM photo GROUP BY folder",
+        "SELECT folder, ANY_VALUE(cat), ANY_VALUE(url) FROM photo GROUP BY folder",
       values: [],
     });
     const photoList = JSON.stringify(getPhotoList);
