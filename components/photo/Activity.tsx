@@ -16,7 +16,7 @@ const Activity = ({
   const [zoomInPohtoURL, setZoomInPhotoURL] = useState("");
   const [photoIndex, setPhotoIndex] = useState(0);
   const [ref, inView] = useInView();
-
+  console.log(photos[0]);
   async function loadMorePhotos() {
     const next = page + 1;
     const res = await fetch(
@@ -93,10 +93,10 @@ const Activity = ({
         <div className="activity-header">
           <div className="activity-info">
             <ul>
-              <li>{photos[0]["cat"]}</li>
+              <li>{photos[0].cat}</li>
             </ul>
           </div>
-          <h1 className="activity-title">{photos[0]["folder"]}</h1>
+          <h1 className="activity-title">{photos[0].folder}</h1>
         </div>
       )}
       <div className="photo-list">
