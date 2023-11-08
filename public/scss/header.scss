@@ -109,3 +109,13 @@ header {
     width: 15%;
   }
 }
+@media (max-width: 767px) {
+  header {
+    img {
+      width: 23.54vw;
+    }
+  }
+  nav {
+    visibility: hidden;
+  }
+}

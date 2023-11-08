@@ -72,3 +72,31 @@
     margin-right: auto;
   }
 }
+@media (max-width: 767px) {
+  .member-header {
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: 0 5vw;
+    margin-top: 35vw;
+    .member-figure {
+      width: 100%;
+      margin-top: 10vw;
+    }
+  }
+  .semester {
+    h2 {
+      font-size: 4.5vw;
+      padding: 0 5vw;
+    }
+    .semester-btn-list {
+      gap: 5.65vw 7.94vw;
+      margin-top: 8vw;
+      grid-template-columns: repeat(2, 1fr);
+      .semester-btn {
+        font-size: 3vw;
+        width: 32vw;
+        padding: 3vw 3.6vw;
+      }
+    }
+  }
+}

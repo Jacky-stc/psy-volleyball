@@ -7,15 +7,25 @@ import { useState } from "react";
 const PhotoList = ({
   data,
 }: {
-  data: { cat: string; folder: string; url: string }[];
+  data: {
+    "ANY_VALUE(cat)": string;
+    folder: string;
+    "ANY_VALUE(url)": string;
+  }[];
 }) => {
   const [photoCategory, setPhotoCategory] = useState("");
   const categoryList = ["所有相簿", "盃賽", "送舊", "聚會活動", "瑣碎日常"];
-  let photoAlbum: { cat: string; folder: string; url: string }[] = [];
+  let photoAlbum: {
+    "ANY_VALUE(cat)": string;
+    folder: string;
+    "ANY_VALUE(url)": string;
+  }[] = [];
   if (photoCategory === "" || photoCategory === "所有相簿") {
     photoAlbum = data;
   } else {
-    photoAlbum = data.filter((photo) => photo.cat === photoCategory);
+    photoAlbum = data.filter(
+      (photo) => photo["ANY_VALUE(cat)"] === photoCategory
+    );
   }
   const clickFunction = (cat: string) => {
     if (cat === "所有相簿") {
@@ -60,11 +70,15 @@ const PhotoList = ({
           <Link href={`/photo/${photo.folder}`} key={index}>
             <div className="photo-list-item">
               <figure className="album">
-                <img src={photo.url} alt="photo-item" loading="lazy" />
+                <img
+                  src={photo["ANY_VALUE(url)"]}
+                  alt="photo-item"
+                  loading="lazy"
+                />
               </figure>
               <h2>{photo.folder}</h2>
               <ul>
-                <li>{photo.cat}</li>
+                <li>{photo["ANY_VALUE(cat)"]}</li>
               </ul>
             </div>
           </Link>

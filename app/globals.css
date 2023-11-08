@@ -98,3 +98,29 @@ a {
 .sub .ch {
   font-size: min((0.02222 * 100vw), 32px);
 }
+@media (max-width: 767px) {
+  .heading-2 {
+    flex-direction: column;
+    gap: 3.2vw;
+    padding-right: 0;
+    writing-mode: initial;
+  }
+  .heading-2 .en {
+    font-size: 3.7333vw;
+    position: static;
+    rotate: 0deg;
+  }
+  .heading-2 .ch {
+    font-size: 6vw;
+    letter-spacing: 0.05em;
+  }
+  .heading-2 .ch :before {
+    background: url(/line-dot-horizontal_3x10_gray.png) 0 0 / contain repeat-x;
+    bottom: auto;
+    height: 2px;
+    left: 0;
+    right: auto;
+    top: -2.9334vw;
+    width: 100%;
+  }
+}

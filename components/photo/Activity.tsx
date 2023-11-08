@@ -16,7 +16,6 @@ const Activity = ({
   const [zoomInPohtoURL, setZoomInPhotoURL] = useState("");
   const [photoIndex, setPhotoIndex] = useState(0);
   const [ref, inView] = useInView();
-  console.log(photos[0]);
   async function loadMorePhotos() {
     const next = page + 1;
     const res = await fetch(
