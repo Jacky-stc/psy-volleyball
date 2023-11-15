@@ -54,6 +54,15 @@
     // filter: brightness(2);
     opacity: 0.3;
   }
+  &::before {
+    background: url(/line-dot-horizontal_3x10_gray.png) 0 0 / auto repeat-x;
+    bottom: 0;
+    content: "";
+    height: 1.5px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 }
 .footer-copyright {
   align-items: baseline;
@@ -63,5 +72,35 @@
   padding: min((0.09861 * 100vw), 142px) 0 0;
   .text {
     font-size: min((0.01042 * 100vw), 15px);
+  }
+}
+@media (max-width: 767px) {
+  .footer-inner {
+    display: block;
+    padding: 21.3333vw 5.3333vw 10.1333vw;
+    .logo {
+      width: 45vw;
+    }
+    .text {
+      font-size: 4vw;
+    }
+    .footer-nav {
+      gap: 20.0133vw;
+      margin: 17.0666vw 0 0;
+      .footer-nav-group {
+        gap: 5.3333vw;
+        .footer-nav-link {
+          font-size: 3.666vw;
+          &::before {
+            height: 2px;
+          }
+        }
+      }
+    }
+    .footer-copyright {
+      .text {
+        font-size: 3vw;
+      }
+    }
   }
 }

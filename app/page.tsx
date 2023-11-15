@@ -27,14 +27,30 @@ export default function Home() {
         </div>
         <div className="homepage-contents">
           <div className="homepage-photo">
+            <div className="m-inner homepage-photo-inner">
+              <div className="homepage-photo-header"></div>
+              <div className="homepage-photo-body">
+                <div className="homepage-photo-list">
+                  <div className="homepage-photo-list-item">
+                    <div className="homepage-photo-list-item-title"></div>
+                    <div className="homepage-photo-list-item-body"></div>
+                  </div>
+                  <div className="homepage-photo-list-image"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="homepage-contents">
+          <div className="homepage-member">
             <div className="m-inner">
               <h2 className="m-heading">
                 <span className="en">Photos</span>
                 <span className="ch">照片紀念</span>
               </h2>
-              <div className="homepage-photo-header">
-                <p className="homepage-photo-lead">以熱情澆灌興趣</p>
-                <div className="homepage-photo-body">
+              <div className="homepage-member-header">
+                <p className="homepage-member-lead">以熱情澆灌興趣</p>
+                <div className="homepage-member-body">
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Officia reprehenderit vero excepturi modi doloribus

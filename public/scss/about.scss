@@ -110,3 +110,35 @@
   margin-top: 2rem;
   border-radius: 12px;
 }
+@media (max-width: 767px) {
+  .about-header {
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0 5vw;
+    margin-top: 35vw;
+    .about-video {
+      width: 100%;
+      margin-top: 8vw;
+    }
+  }
+  .about-about {
+    padding: 0 5vw;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.5vw;
+    .about-table {
+      width: 100%;
+    }
+  }
+  .about-place {
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 5vw;
+    .about-place-title {
+      position: static;
+    }
+    .about-place-body {
+      width: 100%;
+    }
+  }
+}
