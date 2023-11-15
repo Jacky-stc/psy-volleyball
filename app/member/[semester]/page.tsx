@@ -1,7 +1,7 @@
 import "@/public/scss/semester.scss";
 
 async function getPlayerInfo() {
-  const res = await fetch("http://localhost:3000/api/player");
+  const res = await fetch(`${process.env.URL}/api/player`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -10,6 +10,9 @@ async function getPlayerInfo() {
 }
 
 const page = async ({ params }: { params: { semester: string } }) => {
+  if (!process.env.URL) {
+    return null;
+  }
   type PositionList = {
     [key: string]: string;
   };

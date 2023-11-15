@@ -6,10 +6,13 @@ import { Suspense } from "react";
 const page = async ({ params }: { params: { activity: string } }) => {
   async function getPhotos() {
     const res = await fetch(
-      `http://localhost:3000/api/photo/${params.activity}?page=0`
+      `${process.env.URL}/api/photo/${params.activity}?page=0`
     );
     const photos = await res.json();
     return photos;
+  }
+  if (!process.env.URL) {
+    return null;
   }
   const result = await getPhotos();
   return (

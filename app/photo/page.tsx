@@ -3,7 +3,7 @@ import "@/public/scss/photo.scss";
 import PhotoList from "@/components/photo/PhotoList";
 
 async function getPhotoList() {
-  const result = await fetch("http://localhost:3000/api/photo");
+  const result = await fetch(`${process.env.URL}/api/photo`);
   // await Wait(2000);
   if (!result.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -14,6 +14,9 @@ async function getPhotoList() {
 }
 
 const page = async () => {
+  if(!process.env.URL){
+    return null
+  }
   const data: { photoList: string } = await getPhotoList();
   return (
     <div className="m-inner">
