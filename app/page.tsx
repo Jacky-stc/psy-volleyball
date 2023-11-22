@@ -27,12 +27,16 @@ export default function Home() {
           </div>
         </div>
         <div className="homepage-contents">
+          <div className="notyet"></div>
+        </div>
+        <div className="homepage-contents">
           <div className="homepage-photo">
             <div className="m-inner homepage-photo-inner">
               <div className="homepage-photo-header">
                 <div className="homepage-photo-title">
                   <p className="homepage-photo-lead">
-                    <span>公共施設まで幅広く対応</span>
+                    <span>才華是可以栽培開花的，</span>
+                    <span>靈感是可以研磨雕琢的。</span>
                   </p>
                   <h2 className="m-heading">
                     <span className="en">Photos</span>
@@ -53,16 +57,16 @@ export default function Home() {
           <div className="homepage-member">
             <div className="m-inner">
               <h2 className="m-heading">
-                <span className="en">Photos</span>
-                <span className="ch">照片紀念</span>
+                <span className="en">members</span>
+                <span className="ch">歷屆成員</span>
               </h2>
               <div className="homepage-member-header">
-                <p className="homepage-member-lead">以熱情澆灌興趣</p>
+                <p className="homepage-member-lead">
+                  所謂排球，是在網這邊的都是夥伴
+                </p>
                 <div className="homepage-member-body">
                   <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Officia reprehenderit vero excepturi modi doloribus
-                    quibusdam sequi ad amet sint debitis.
+                    迄今為止，政大心理系排已創立十餘年，成員們來來去去，不求來時能帶些什麼來，只希望離開時能帶走一些什麼。
                   </p>
                   <nav>
                     <a href="/" className="m-btn"></a>
