@@ -9,7 +9,7 @@ header {
   font-size: min(1.781vw, 16px);
   color: #444141;
   z-index: 10;
-  nav {
+  .header {
     top: min((0.07167 * 100vw), 60px);
     right: min((0.08167 * 100vw), 240px);
     position: fixed;
@@ -115,7 +115,17 @@ header {
       width: 23.54vw;
     }
   }
-  nav {
+  .header {
     visibility: hidden;
+  }
+  .loading-bg {
+    img {
+      width: 50%;
+    }
+  }
+  .loading-t {
+    img {
+      width: 50%;
+    }
   }
 }

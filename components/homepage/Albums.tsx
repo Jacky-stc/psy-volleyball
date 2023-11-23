@@ -49,7 +49,7 @@ const Albums = () => {
       >
         <h3 className="homepage-photo-list-item-title">聚會活動</h3>
         <div className="homepage-photo-list-item-body">
-          除了平時的練球外，球隊也會不定時地舉辦隊員的聚會活動，例如期末隊聚、隊遊、移地訓練等等，不只能增進場下隊員們之間的感情，也能大大提升彼此在場上時的默契彼此在場上時的默契！
+          除了平時的練球外，球隊也會不定時地舉辦隊員的聚會活動，例如期末隊聚、隊遊、移地訓練等等，不只能增進場下隊員們之間的感情，也能大大提升彼此在場上時的默契！
         </div>
         <figure className="homepage-photo-list-figure">
           <img src="/img/homepage-photo-5.jpg" className="img1" />

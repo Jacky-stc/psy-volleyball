@@ -41,7 +41,7 @@ const Header = () => {
         alt="logo"
         className={scrollingUp ? "show" : "miss"}
       />
-      <nav className={scrollingUp ? "show" : "miss"}>
+      <nav className={`header ${scrollingUp ? "show" : "miss"}`}>
         <ul>
           <li>
             <Link href={"/"}>首頁</Link>

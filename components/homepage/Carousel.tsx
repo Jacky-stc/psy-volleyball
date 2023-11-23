@@ -1,6 +1,6 @@
 import React from "react";
 
-const Carousel = async () => {
+const Carousel = () => {
   return (
     <div className="homepage-photo-carousel-container">
       <div className="homepage-photo-carousel">

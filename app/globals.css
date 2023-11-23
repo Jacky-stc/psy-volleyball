@@ -60,6 +60,21 @@ a {
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
+.m-btn .icon {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  min-height: min((0.01458 * 100vw), 21px);
+  padding: 0 min((0.01111 * 100vw), 16px);
+  position: relative;
+}
+.m-btn .arrow {
+  width: min((0.01883 * 100vw), 27.12px);
+}
+.m-btn-white {
+  border-color: #fff;
+  color: #fff;
+}
 .heading-2 {
   writing-mode: vertical-rl;
   position: relative;
@@ -122,5 +137,21 @@ a {
     right: auto;
     top: -2.9334vw;
     width: 100%;
+  }
+  .m-btn {
+    background: #3c3c3c;
+    color: #fff;
+    font-size: 4.2666vw;
+    padding: 3.7333vw 0 3.7333vw 6.4vw;
+  }
+  .m-btn .arrow {
+    width: 5.5066vw;
+  }
+  .m-btn .icon {
+    min-height: 5.8666vw;
+    padding: 0 4vw 0 3.2vw;
+  }
+  .m-btn .icon path {
+    fill: #fff;
   }
 }
