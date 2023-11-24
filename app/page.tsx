@@ -81,7 +81,8 @@ export default function Home() {
               </h2>
               <div className="homepage-member-header">
                 <p className="homepage-member-lead">
-                  所謂排球，是在網這邊的都是夥伴
+                  <span>所謂排球，</span>
+                  <span>是在網這邊的都是夥伴</span>
                 </p>
                 <div className="homepage-member-body">
                   <p>
@@ -98,7 +99,7 @@ export default function Home() {
                         >
                           <path
                             d="M21.129 9a1 1 0 0 1-1.009-.98V.98A1 1 0 0 1 21.13 0a1.014 1.014 0 0 1 .589.188L26.7 3.707a.963.963 0 0 1 0 1.585l-4.98 3.52a1.014 1.014 0 0 1-.59.188Zm-5.113-3.5a1 1 0 1 1 0-2h.005a1 1 0 0 1 0 2Zm-5.006 0a1 1 0 0 1 0-2h.006a1 1 0 0 1 0 2Zm-5 0a1 1 0 0 1 0-2h.005a1 1 0 0 1 0 2ZM1 5.5a1 1 0 0 1 0-2h.005a1 1 0 1 1 0 2Z"
-                            fill="#3c3c3c"
+                            fill="#fff"
                           ></path>
                         </svg>
                       </span>
