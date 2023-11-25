@@ -109,6 +109,9 @@ header {
     width: 15%;
   }
 }
+.l-header {
+  display: none;
+}
 @media (max-width: 767px) {
   header {
     img {
