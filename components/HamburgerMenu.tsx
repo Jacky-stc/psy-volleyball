@@ -6,7 +6,7 @@ import { useState } from "react";
 const HamburgerMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div className="l-header">
+    <div className="l-header" style={{ zIndex: menuOpen ? 10 : -1 }}>
       <div
         className={`menu btn1 ${menuOpen ? "btn-open" : ""}`}
         onClick={() => {

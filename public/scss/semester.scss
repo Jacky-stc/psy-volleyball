@@ -61,3 +61,28 @@
     }
   }
 }
+@media (max-width: 767px) {
+  .semester-title {
+    font-size: 8vw;
+    margin: 40vw 0 20vw;
+  }
+  .semester-body-title {
+    font-size: 8vw;
+    margin-top: 10vw;
+  }
+  .semester-body {
+    display: flex;
+    overflow-x: scroll;
+  }
+  .personal-profile {
+    h2 {
+      font-size: 5vw;
+    }
+    ul {
+      li {
+        font-size: 4vw;
+        padding: 1vw 4vw;
+      }
+    }
+  }
+}
