@@ -139,6 +139,9 @@
   bottom: 6vh;
   right: 4vw;
 }
+.l-header {
+  display: none;
+}
 @media (max-width: 767px) {
   .l-header {
     display: block;
