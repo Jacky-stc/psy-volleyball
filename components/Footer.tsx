@@ -28,17 +28,8 @@ const Footer = () => {
               </a>
             </div>
             <div className="footer-nav-group">
-              <a href="/" className="footer-nav-link">
-                首頁
-              </a>
-              <a href="/member" className="footer-nav-link">
-                歷屆成員
-              </a>
-              <a href="/photo" className="footer-nav-link">
-                照片紀念
-              </a>
-              <a href="/about" className="footer-nav-link">
-                關於我們
+              <a href="mailto:stzuchieh@gmail.com" className="footer-nav-link">
+                聯繫我們
               </a>
             </div>
           </nav>

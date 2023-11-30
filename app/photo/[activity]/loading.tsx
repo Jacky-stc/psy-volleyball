@@ -1,4 +1,5 @@
 import React from "react";
+import "@/public/scss/loading.scss";
 
 const loading = () => {
   return (
@@ -15,8 +16,7 @@ const loading = () => {
           marginBottom: "min(12.167vw, 360px)",
         }}
       >
-        <h1>Loading</h1>
-        <h1>Loading</h1>
+        <span className="loader"></span>
       </div>
     </>
   );

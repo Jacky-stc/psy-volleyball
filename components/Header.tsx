@@ -36,11 +36,13 @@ const Header = () => {
 
   return (
     <header>
-      <img
-        src="/logo.png"
-        alt="logo"
-        className={scrollingUp ? "show" : "miss"}
-      />
+      <Link href={"/"}>
+        <img
+          src="/logo.png"
+          alt="logo"
+          className={scrollingUp ? "show" : "miss"}
+        />
+      </Link>
       <nav className={`header ${scrollingUp ? "show" : "miss"}`}>
         <ul>
           <li>
@@ -55,7 +57,9 @@ const Header = () => {
           <li>
             <Link href={"/about"}>關於我們</Link>
           </li>
-          <button>CONTACT</button>
+          <Link href={"mailto:stzuchieh@gmail.com"}>
+            <button>CONTACT</button>
+          </Link>
         </ul>
       </nav>
     </header>

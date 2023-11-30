@@ -67,7 +67,7 @@
     margin: 40vw 0 20vw;
   }
   .semester-body-title {
-    font-size: 8vw;
+    font-size: 6vw;
     margin-top: 10vw;
   }
   .semester-body {
@@ -75,13 +75,17 @@
     overflow-x: scroll;
   }
   .personal-profile {
+    .personal-profile-photo {
+      width: 48vw;
+      height: 72vw;
+    }
     h2 {
-      font-size: 5vw;
+      font-size: 4vw;
     }
     ul {
       li {
-        font-size: 4vw;
-        padding: 1vw 4vw;
+        font-size: 2.5vw;
+        padding: 1vw 3vw;
       }
     }
   }

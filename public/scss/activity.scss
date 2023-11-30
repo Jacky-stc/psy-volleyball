@@ -1,5 +1,5 @@
 .activity-inner {
-  padding-top: min((0.29167 * 100vw), 420px);
+  margin-top: min((0.29167 * 100vw), 420px);
   position: relative;
 }
 .activity-header {
@@ -107,4 +107,20 @@
   position: absolute;
   top: 50%;
   left: 3%;
+}
+@media (max-width: 767px) {
+  .activity-header {
+    margin: 0 3vw;
+    .activity-info {
+      ul {
+        li {
+          font-size: 3vw;
+          padding: 0.5vw 2vw;
+        }
+      }
+    }
+    .activity-title {
+      font-size: 5vw;
+    }
+  }
 }
