@@ -18,7 +18,6 @@ const page = async ({ params }: { params: { semester: string } }) => {
   };
   const semesterYear = params.semester.slice(8, 11);
   const playerInfo = await getPlayerInfo();
-  console.log(playerInfo);
   const playerMale = JSON.parse(playerInfo["playerInfo"]).filter(
     (member: any) =>
       member["semester"] === semesterYear &&
@@ -31,6 +30,8 @@ const page = async ({ params }: { params: { semester: string } }) => {
       member["gender"] === "f" &&
       member["position"] !== "m"
   );
+  console.log(JSON.stringify(playerFemale));
+  const playerFemaleString = JSON.stringify(playerFemale);
   const playerAssistance = JSON.parse(playerInfo["playerInfo"]).filter(
     (member: any) =>
       member["semester"] === semesterYear && member["position"] === "m"
@@ -92,6 +93,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
             )
           )}
         </div>
+        <div>{playerFemaleString}</div>
         {playerAssistance[0] && (
           <div className="semester-body-header">
             <h2 className="semester-body-title">球經</h2>
