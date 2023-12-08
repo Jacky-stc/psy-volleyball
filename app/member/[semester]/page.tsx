@@ -18,6 +18,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
   };
   const semesterYear = params.semester.slice(8, 11);
   const playerInfo = await getPlayerInfo();
+  const playerInfoString = JSON.stringify(playerInfo);
   const playerMale = JSON.parse(playerInfo["playerInfo"]).filter(
     (member: any) =>
       member["semester"] === semesterYear &&
@@ -112,6 +113,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
             )
           )}
         </div>
+        <div>{playerInfoString}</div>
       </div>
     </>
   );
