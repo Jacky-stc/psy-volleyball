@@ -1,15 +1,6 @@
 import { query } from "@/lib/db";
 import "@/public/scss/semester.scss";
 
-async function getPlayerInfo() {
-  const res = await fetch(`${process.env.URL}/api/player`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
 const page = async ({ params }: { params: { semester: string } }) => {
   if (!process.env.URL) {
     return null;
@@ -21,23 +12,21 @@ const page = async ({ params }: { params: { semester: string } }) => {
     query: "SELECT * FROM player",
     values: [],
   });
-  console.log(JSON.stringify(playerInfoDB));
   const semesterYear = params.semester.slice(8, 11);
   const playerInfoString = JSON.stringify(playerInfoDB);
-  const playerInfo = await getPlayerInfo();
-  const playerMale = JSON.parse(playerInfo["playerInfo"]).filter(
+  const playerMale = JSON.parse(playerInfoString).filter(
     (member: any) =>
       member["semester"] === semesterYear &&
       member["gender"] === "m" &&
       member["position"] !== "m"
   );
-  const playerFemale = JSON.parse(playerInfo["playerInfo"]).filter(
+  const playerFemale = JSON.parse(playerInfoString).filter(
     (member: any) =>
       member["semester"] === semesterYear &&
       member["gender"] === "f" &&
       member["position"] !== "m"
   );
-  const playerAssistance = JSON.parse(playerInfo["playerInfo"]).filter(
+  const playerAssistance = JSON.parse(playerInfoString).filter(
     (member: any) =>
       member["semester"] === semesterYear && member["position"] === "m"
   );
@@ -119,7 +108,6 @@ const page = async ({ params }: { params: { semester: string } }) => {
             )
           )}
         </div>
-        <div>{playerInfoString}</div>
       </div>
     </>
   );
