@@ -1,3 +1,4 @@
+import { query } from "@/lib/db";
 import "@/public/scss/semester.scss";
 
 async function getPlayerInfo() {
@@ -16,9 +17,14 @@ const page = async ({ params }: { params: { semester: string } }) => {
   type PositionList = {
     [key: string]: string;
   };
+  const playerInfoDB = await query({
+    query: "SELECT * FROM player",
+    values: [],
+  });
+  console.log(JSON.stringify(playerInfoDB));
   const semesterYear = params.semester.slice(8, 11);
+  const playerInfoString = JSON.stringify(playerInfoDB);
   const playerInfo = await getPlayerInfo();
-  const playerInfoString = JSON.stringify(playerInfo);
   const playerMale = JSON.parse(playerInfo["playerInfo"]).filter(
     (member: any) =>
       member["semester"] === semesterYear &&
