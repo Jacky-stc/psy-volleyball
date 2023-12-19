@@ -21,6 +21,7 @@ const page = async ({ params }: { params: { activity: string } }) => {
         <Activity
           initialPhotos={result["photos"]}
           folder={params.activity}
+          url={process.env.URL}
         ></Activity>
       </Suspense>
     </div>

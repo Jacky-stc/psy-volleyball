@@ -7,9 +7,11 @@ import { useInView } from "react-intersection-observer";
 const Activity = ({
   initialPhotos,
   folder,
+  url,
 }: {
   initialPhotos: { cat: string; folder: string; url: string }[];
   folder: string;
+  url: string;
 }) => {
   const [page, setPage] = useState(0);
   const [photos, setPhotos] = useState(initialPhotos);
@@ -18,9 +20,7 @@ const Activity = ({
   const [ref, inView] = useInView();
   async function loadMorePhotos() {
     const next = page + 1;
-    const res = await fetch(
-      `http://localhost:3000/api/photo/${folder}?page=${next}`
-    );
+    const res = await fetch(`${url}/api/photo/${folder}?page=${next}`);
     const resPhotos = await res.json();
     if (resPhotos["photos"][0]) {
       setPage(next);
