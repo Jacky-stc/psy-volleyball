@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import HamburgerMenu from "@/components/HamburgerMenu";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "政治大學心理系排",

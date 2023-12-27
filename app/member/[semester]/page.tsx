@@ -1,5 +1,6 @@
 import { query } from "@/lib/db";
 import "@/public/scss/semester.scss";
+import React from "react";
 
 const page = async ({ params }: { params: { semester: string } }) => {
   if (!process.env.URL) {

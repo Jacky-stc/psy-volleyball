@@ -24,5 +24,19 @@
     "react-intersection-observer": "^9.5.2",
     "sass": "^1.68.0",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.11",
+    "babel-jest": "^29.7.0",
+    "cypress": "^13.6.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.1"
   }
 }

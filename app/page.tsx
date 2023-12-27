@@ -1,7 +1,8 @@
-import Albums from "@/components/homepage/Albums";
-import Carousel from "@/components/homepage/Carousel";
-import "@/public/scss/homepage.scss";
+import Albums from "../components/homepage/Albums";
+import Carousel from "../components/homepage/Carousel";
+import "../public/scss/homepage.scss";
 import { Suspense } from "react";
+import React from "react";
 
 export default function Home() {
   return (

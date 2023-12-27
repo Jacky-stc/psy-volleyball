@@ -22,6 +22,14 @@ const nextConfig = {
     ];
   },
   output: "standalone",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "psy-volleyball.s3.ap-northeast-1.amazonaws.com",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
